@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Coordinator | Join USMLEWise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f0f1a;
+            --navy-light: #1a1a2e;
+            --purple: #a78bfa;
+            --purple-dark: #7c3aed;
+            --gold: #fbbf24;
+            --green: #22c55e;
+            --cyan: #22d3ee;
+            --white: #ffffff;
+            --gray: #9ca3af;
+            --gray-light: #d1d5db;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 100%);
+            min-height: 100vh;
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background: rgba(167, 139, 250, 0.1);
+            border-bottom: 1px solid rgba(167, 139, 250, 0.2);
+            padding: 12px 24px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .top-banner a {
+            color: var(--purple);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .top-banner a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 0 60px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(34, 197, 94, 0.15);
+            color: var(--green);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--purple) 0%, #c4b5fd 50%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold) 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            margin: 40px 0;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+            background: rgba(167, 139, 250, 0.1);
+        }
+
+        /* Section Headers */
+        .section-anchor {
+            padding-top: 40px;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: var(--purple-dark);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(30, 30, 50, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .card-subtitle {
+            font-size: 13px;
+            color: var(--purple);
+            font-weight: 600;
+        }
+
+        /* Lists */
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: var(--gray-light);
+        }
+
+        .checklist li::before {
+            content: '→';
+            color: var(--purple);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .checklist li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Highlight List */
+        .highlight-list {
+            list-style: none;
+        }
+
+        .highlight-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 15px;
+            color: var(--gray-light);
+        }
+
+        .highlight-list li .icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(34, 197, 94, 0.15);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Grid */
+        .two-col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        /* Tags */
+        .tag {
+            display: inline-block;
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--purple);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-left: 8px;
+        }
+
+        .tag-required {
+            background: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+        }
+
+        .tag-preferred {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--gold);
+        }
+
+        .tag-bonus {
+            background: rgba(34, 197, 94, 0.15);
+            color: var(--green);
+        }
+
+        /* Table */
+        .requirements-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 24px 0;
+        }
+
+        .requirements-table th {
+            background: rgba(167, 139, 250, 0.15);
+            color: var(--purple);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 14px 16px;
+            text-align: left;
+        }
+
+        .requirements-table th:first-child {
+            border-radius: 10px 0 0 0;
+        }
+
+        .requirements-table th:last-child {
+            border-radius: 0 10px 0 0;
+        }
+
+        .requirements-table td {
+            background: rgba(30, 30, 50, 0.6);
+            padding: 14px 16px;
+            font-size: 14px;
+            color: var(--gray-light);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .requirements-table tr:last-child td:first-child {
+            border-radius: 0 0 0 10px;
+        }
+
+        .requirements-table tr:last-child td:last-child {
+            border-radius: 0 0 10px 0;
+        }
+
+        /* Ideal Candidate */
+        .ideal-box {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(30, 30, 50, 0.8) 100%);
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 40px 0;
+        }
+
+        .ideal-box h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ideal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .ideal-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+        }
+
+        .ideal-item .emoji {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .ideal-item h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .ideal-item p {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        /* Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 10px;
+        }
+
+        .benefit-item .icon {
+            font-size: 20px;
+        }
+
+        .benefit-item span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: var(--gray);
+            font-size: 16px;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 100%);
+            color: var(--white);
+            padding: 18px 40px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(124, 58, 237, 0.4);
+        }
+
+        .cta-note {
+            margin-top: 16px;
+            font-size: 13px;
+            color: var(--gray);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 60px;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--purple) 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: var(--gray);
+            margin-bottom: 8px;
+        }
+
+        .footer a {
+            color: var(--purple);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Work Attitude Box */
+        .attitude-box {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(30, 30, 50, 0.8) 100%);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 16px;
+            padding: 28px;
+            margin: 32px 0;
+        }
+
+        .attitude-box h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .attitude-box p {
+            font-size: 15px;
+            color: var(--gray-light);
+            line-height: 1.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .ideal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-row {
+                gap: 32px;
+            }
+
+            .nav-links {
+                gap: 4px;
+            }
+
+            .nav-links a {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        🚀 Building the future of medical education. <a href="https://usmlewise.com">Learn more about USMLEWise →</a>
+    </div>
+
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="badge">🟢 Now Hiring</div>
+            <h1>Business Coordinator</h1>
+            <p class="hero-subtitle">
+                Join our mission to create the next generation of genius doctors. We're looking for someone ready to roll up their sleeves and grow with us.
+            </p>
+
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-number">0-1</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Full-Time</div>
+                    <div class="stat-label">Position Type</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Remote</div>
+                    <div class="stat-label">Work Style</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="nav-links">
+            <a href="#overview">Overview</a>
+            <a href="#responsibilities">Responsibilities</a>
+            <a href="#requirements">Requirements</a>
+            <a href="#ideal">Ideal Candidate</a>
+            <a href="#benefits">Benefits</a>
+            <a href="#apply">Apply Now</a>
+        </nav>
+
+        <!-- Overview Section -->
+        <section id="overview" class="section-anchor">
+            <span class="section-label">Position Overview</span>
+            <h2 class="section-title">Build Your Career From the Ground Up</h2>
+            <p class="section-subtitle">An excellent opportunity for fresh graduates eager to jump into business operations.</p>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">🎯</div>
+                    <div>
+                        <h3 class="card-title">What This Role Is About</h3>
+                        <p class="card-subtitle">Entry-level with real impact</p>
+                    </div>
+                </div>
+                <p style="color: var(--gray-light); margin-bottom: 20px;">
+                    We're seeking a motivated and enthusiastic Business Coordinator to support our daily operations. This role is perfect for someone who wants hands-on experience across multiple business functions. You'll work directly with our team on everything from scheduling to documentation to project support.
+                </p>
+                <ul class="checklist">
+                    <li>Fresh graduates welcome. No prior experience required.</li>
+                    <li>Medical or healthcare background is a strong plus.</li>
+                    <li>Growth mindset matters more than your resume.</li>
+                    <li>You'll touch every part of the business.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Responsibilities Section -->
+        <section id="responsibilities" class="section-anchor">
+            <span class="section-label">Key Responsibilities</span>
+            <h2 class="section-title">What You'll Actually Do</h2>
+            <p class="section-subtitle">Real work, real learning, real impact on day one.</p>
+
+            <div class="two-col">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">⚙️</div>
+                        <div>
+                            <h3 class="card-title">Business Operations</h3>
+                            <p class="card-subtitle">Keep things running smoothly</p>
+                        </div>
+                    </div>
+                    <ul class="checklist">
+                        <li>Support daily business operations and admin functions</li>
+                        <li>Coordinate meetings, appointments, and team schedules</li>
+                        <li>Prepare reports, presentations, and documentation</li>
+                        <li>Maintain organized records and filing systems</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">🔧</div>
+                        <div>
+                            <h3 class="card-title">Hands-On Support</h3>
+                            <p class="card-subtitle">No task too small</p>
+                        </div>
+                    </div>
+                    <ul class="checklist">
+                        <li>Perform foundational and ground-level operational work</li>
+                        <li>Data entry, research, and information gathering</li>
+                        <li>Support various departments as needed</li>
+                        <li>Handle ad-hoc assignments and team projects</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">💬</div>
+                    <div>
+                        <h3 class="card-title">Communication & Collaboration</h3>
+                        <p class="card-subtitle">Connect the dots across teams</p>
+                    </div>
+                </div>
+                <ul class="checklist">
+                    <li>Communicate effectively with internal teams and external stakeholders</li>
+                    <li>Coordinate with vendors, clients, and service providers</li>
+                    <li>Assist in organizing events, meetings, and company activities</li>
+                    <li>Be the glue that keeps projects moving forward</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Requirements Section -->
+        <section id="requirements" class="section-anchor">
+            <span class="section-label">Requirements</span>
+            <h2 class="section-title">What We're Looking For</h2>
+            <p class="section-subtitle">Skills and attributes that matter for this role.</p>
+
+            <table class="requirements-table">
+                <thead>
+                    <tr>
+                        <th>Requirement</th>
+                        <th>Details</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Experience</strong></td>
+                        <td>0-1 years. Fresh graduates welcome.</td>
+                        <td><span class="tag tag-required">Required</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Organization Skills</strong></td>
+                        <td>Strong time management and ability to juggle multiple tasks</td>
+                        <td><span class="tag tag-required">Required</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Communication</strong></td>
+                        <td>Excellent written and verbal abilities</td>
+                        <td><span class="tag tag-required">Required</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>MS Office</strong></td>
+                        <td>Proficiency in Word, Excel, PowerPoint</td>
+                        <td><span class="tag tag-required">Required</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Attitude</strong></td>
+                        <td>Willingness to learn and take on diverse responsibilities</td>
+                        <td><span class="tag tag-required">Required</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Medical Background</strong></td>
+                        <td>Background in medical, healthcare, or life sciences</td>
+                        <td><span class="tag tag-preferred">Preferred</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Business Knowledge</strong></td>
+                        <td>Basic understanding of business operations</td>
+                        <td><span class="tag tag-preferred">Preferred</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Independence</strong></td>
+                        <td>Ability to work independently and as part of a team</td>
+                        <td><span class="tag tag-preferred">Preferred</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Work Attitude Box -->
+        <div class="attitude-box">
+            <h3>💪 Our Work Philosophy</h3>
+            <p>
+                We value candidates who are ready to start from the ground up and aren't afraid of doing foundational work. This role requires someone with a growth mindset who sees every task as an opportunity to learn and contribute to the organization's success. If you're looking for a role where you can coast, this isn't it. If you want to build something meaningful and grow fast, keep reading.
+            </p>
+        </div>
+
+        <!-- Ideal Candidate Section -->
+        <section id="ideal" class="section-anchor">
+            <div class="ideal-box">
+                <h3>🎯 The Ideal Candidate</h3>
+                <div class="ideal-grid">
+                    <div class="ideal-item">
+                        <div class="emoji">🚀</div>
+                        <h4>Growth Mindset</h4>
+                        <p>Sees every task as a learning opportunity</p>
+                    </div>
+                    <div class="ideal-item">
+                        <div class="emoji">🔥</div>
+                        <h4>Bias for Action</h4>
+                        <p>Doesn't wait to be told what to do</p>
+                    </div>
+                    <div class="ideal-item">
+                        <div class="emoji">🎯</div>
+                        <h4>Detail-Oriented</h4>
+                        <p>Catches the small stuff before it becomes big stuff</p>
+                    </div>
+                    <div class="ideal-item">
+                        <div class="emoji">🤝</div>
+                        <h4>Team Player</h4>
+                        <p>Puts the mission above personal credit</p>
+                    </div>
+                    <div class="ideal-item">
+                        <div class="emoji">💡</div>
+                        <h4>Problem Solver</h4>
+                        <p>Finds solutions, not excuses</p>
+                    </div>
+                    <div class="ideal-item">
+                        <div class="emoji">📈</div>
+                        <h4>Hungry to Learn</h4>
+                        <p>Absorbs feedback and improves fast</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="benefits" class="section-anchor">
+            <span class="section-label">What We Offer</span>
+            <h2 class="section-title">Why Join USMLEWise?</h2>
+            <p class="section-subtitle">We're building something big. Here's what you get by joining early.</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <span class="icon">📈</span>
+                    <span>Real career growth and development</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="icon">🌐</span>
+                    <span>Exposure to diverse business functions</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="icon">🤝</span>
+                    <span>Supportive and collaborative team</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="icon">🎓</span>
+                    <span>Hands-on learning experience</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="icon">🚀</span>
+                    <span>Work on meaningful projects</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="icon">💪</span>
+                    <span>Direct impact on company growth</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="apply" class="cta-section">
+            <h2>Ready to Join?</h2>
+            <p>
+                If this sounds like you, we want to hear from you. Send us your resume and a brief note on why you're excited about this role.
+            </p>
+            <a href="mailto:info@usmlewise.com?subject=Application%3A%20Business%20Coordinator%20Position&body=Hi%20USMLEWise%20Team%2C%0A%0AI%20am%20writing%20to%20apply%20for%20the%20Business%20Coordinator%20position.%0A%0A---%20ABOUT%20ME%20---%0A%0AFull%20Name%3A%20%0APhone%20Number%3A%20%0ALocation%3A%20%0ALinkedIn%20Profile%3A%20%0A%0A---%20EXPERIENCE%20---%0A%0ACurrent%2FMost%20Recent%20Role%3A%20%0AYears%20of%20Experience%3A%20%0AMedical%2FHealthcare%20Background%20(Yes%2FNo)%3A%20%0A%0A---%20WHY%20I%27M%20EXCITED%20ABOUT%20THIS%20ROLE%20---%0A%0A%5BWrite%202-3%20sentences%20about%20why%20you%20want%20to%20join%20USMLEWise%5D%0A%0A---%20SKILLS%20---%0A%0AMS%20Office%20Proficiency%20(Word%2C%20Excel%2C%20PowerPoint)%3A%20%0AOther%20Relevant%20Skills%3A%20%0A%0A---%20AVAILABILITY%20---%0A%0AEarliest%20Start%20Date%3A%20%0AAvailability%20for%20Interview%3A%20%0A%0A%5BPlease%20attach%20your%20resume%20to%20this%20email%5D%0A%0AThank%20you%20for%20considering%20my%20application.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D" class="cta-button">
+                Apply Now
+                <span>→</span>
+            </a>
+            <p class="cta-note">Clicking will open your email with a pre-filled application template</p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">USMLEWise</div>
+        <p>Creating the next generation of genius doctors.</p>
+        <p><a href="https://usmlewise.com">USMLEWise.com</a></p>
+    </footer>
+</body>
+</html>
